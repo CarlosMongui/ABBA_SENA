@@ -1,0 +1,109 @@
+#navbar-elipse{
+    background-color: #faead4;
+    border-radius: 50%;
+    text-align: center;
+    position: absolute;
+    z-index: 10;
+    top: -60px;
+}
+
+#navbar-title{
+    color: #FFAFCC;
+    text-align: center;
+    z-index: 11;
+    font-family: "Lilita One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    vertical-align: middle;
+    -webkit-text-stroke-width: 4px;
+    -webkit-text-stroke-color: #80304c;
+}
+
+#navbar-subtitle{
+    color: #FFAFCC;
+    text-align: center;
+    position: absolute;
+    z-index: 11;
+    font-family: "Lilita One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    vertical-align: middle;
+    text-align: center;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #80304c;
+}
+
+#navbar{
+    background-color: #faead4;
+}
+
+.navbar-items{
+    font-family: "Merriweather sans", sans-serif;
+    font-size: 18px;
+}
+
+.centrado-horizontal{
+    text-align: center;
+}
+
+.centrado-vertical{
+    vertical-align: center;
+}
+
+.button{
+    font-family: "Merriweather sans", sans-serif;
+    font-size: 30px;
+    color: #202020;
+    text-align: center;
+}
+
+
+.carta-contacto{
+    font-size: 31px;
+    font-family: "Lilita One", sans-serif;
+}
+
+#gradient{
+    background: #ff9966;
+    background: -webkit-linear-gradient(to right, #ff5e62, #ff9966);
+    background: linear-gradient(to right, #ff5e62, #ff9966);
+}
+/*
+.container{
+    background-color: white;
+}
+*/
+#inicio-sesion,
+#registro{
+    background-color: white;
+}
+
+header.masthead {
+    padding-top: 7rem;
+    padding-bottom: 2rem;
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("/resources/images/principal.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
+#busqueda{
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("/resources/images/busqueda.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
+#adopcion{
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("/resources/images/adopcion.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
+.card-text {
+    border-top: 2px solid #999;
+}
