@@ -8,11 +8,13 @@ body.high-contrast a {
     color: #0ff;
 }
 
+/*
 body.high-contrast .btn,
 body.high-contrast .btn-close{
     background-color: #fff;
     color: #000;
 }
+*/
 
 body.high-contrast .navbar,
 body.high-contrast .navbar-items, 
@@ -20,7 +22,9 @@ body.high-contrast .modal-content,
 body.high-contrast .card,
 body.high-contrast .card-header,
 body.high-contrast .card-body,
-body.high-contrast .card-footer {
+body.high-contrast .card-footer,
+body.high-contrast .accordion-body,
+body.high-contrast .form-control {
     background-color: #000;
     color: #fff;
 }
@@ -53,4 +57,19 @@ body.high-contrast #navbar-elipse,
 body.high-contrast .navbar-items{
     background-color: #333;
 }
-/* Añadir cualquier otro elemento que necesite ser modificado */
+
+body.high-contrast #busqueda {
+    background: linear-gradient(to bottom, rgba(11, 9, 8, 0.9) 0%, rgba(11, 9, 8, 0.9) 100%), url("/resources/images/busqueda.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+ 
+body.high-contrast #adopcion {
+    background: linear-gradient(to bottom, rgba(11, 9, 8, 0.9) 0%, rgba(11, 9, 8, 0.9) 100%), url("/resources/images/adopcion.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}

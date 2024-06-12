@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
 
 class PostController extends Controller
 {
@@ -71,6 +70,7 @@ class PostController extends Controller
 
         $newPost = new Post();
         
+        
         if( $request->hasFile('image') ) {
             $file = $request->file('image');
             $destinationPath = 'images/featureds/';
@@ -78,7 +78,7 @@ class PostController extends Controller
             $uploadSuccess = $request->file('image')->move($destinationPath, $filename);
             $newPost->image = $destinationPath . $filename;
         }
-
+        
         $newPost->user_id = $request->user_id;
         $newPost->content = $request->content;
         $newPost->category = $request->category;
@@ -117,9 +117,13 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        if (auth()->user()->id !== $post->user_id) {
+            return back();
+        }else{
         return view("editpost", [
             "post" => $post
         ]);
+    }
     }
 
     /**
@@ -140,48 +144,7 @@ class PostController extends Controller
         $post->category = $request->category;
         $post->save();
 
-        return to_route("selfpost");
-    }
-
-    public function config(Request $request)
-    {
-        $user = Auth::user();
-        return view("config", [
-            "user" => $user,
-            "age" => Carbon::parse($user->birth_date)->age
-        ]);
-    }
-
-    public function updateUser(Request $request)
-    {
-        $validatedData = $request->validate([
-            'email' => 'nullable|email|confirmed',
-            'name' => 'nullable|string|max:255|confirmed',
-            'password' => 'nullable|string|min:8|confirmed',
-            'phone' => 'nullable|string|max:10|confirmed',
-        ], [
-            'email.confirmed' => 'La confirmación del correo electrónico no coincide.',
-
-            'name.confirmed' => 'La confirmación del nombre no coincide.',
-
-            'password.confirmed' => 'La confirmación de la contraseña no coincide.',
-
-            'phone.confirmed' => 'La confirmación del número de telefono no coincide.',
-        ]);
-    
-        $dataToUpdate = array_filter($validatedData, function ($value) {
-            return !is_null($value) && $value !== '';
-        });
-    
-        if (array_key_exists('password', $dataToUpdate)) {
-            $dataToUpdate['password'] = bcrypt($dataToUpdate['password']);
-        }
-    
-        $user = auth()->user();
-        $user->update($dataToUpdate);
-    
-        return redirect()->back()->with('success', 'Perfil actualizado exitosamente.');
-        
+        return to_route("post.self");
     }
 
     /**

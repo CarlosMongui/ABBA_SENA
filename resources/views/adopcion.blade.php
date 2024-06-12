@@ -2,10 +2,12 @@
 
 @section('title', 'ABBA - Adopción')
 
-@section("subtitle", "Adopcion")
+@section("subtitle")
+    <h2 id="navbar-subtitle">Adopcion</h2>
+@endsection
 
 @section("adopcion", "disabled")
 
 @section("buscador")
-<form action="{{ route('adopcion') }}" method="GET">
+    <form action="{{ route('post.adopcion') }}" method="GET">
 @endsection

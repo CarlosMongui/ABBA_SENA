@@ -20,4 +20,11 @@ class ReportController extends Controller
 
         return redirect()->back()->with('success', 'El reporte ha sido enviado.');
     }
+
+    public function destroy(Report $report)
+    {
+        $report->delete();
+
+        return back();
+    }
 }

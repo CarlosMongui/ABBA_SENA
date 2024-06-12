@@ -85,11 +85,4 @@ class RegisterController extends Controller
             'birth_date' => $data['birth_date'],
         ]);
     }
-
-    protected function destroy(User $user)
-    {
-        $user->delete();
-
-        return back();
-    }
 }
