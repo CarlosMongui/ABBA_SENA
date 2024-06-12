@@ -44,7 +44,7 @@
                     <!-- Menu admin -->
                     @if (auth()->user()->admin === 1)
                         <li class="nav-item">
-                            <a class="nav-link navbar-items" href="{{ route('admin.posts') }}" style="color: black;">Administrador</a>
+                            <a class="nav-link navbar-items" href="{{ route('admin.posts') }}">Administrador</a>
                         </li>
                     @endif
                 </ul>
@@ -52,7 +52,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <!-- Botón configuración -->
-                        <a class="nav-link navbar-items" href="{{ route('user.config') }}" style="color: black;">Configuracion</a>
+                        <a class="nav-link navbar-items" href="{{ route('user.config') }}">Configuracion</a>
                     </li>
                     <li class="nav-item">
                         <!-- Botón accesiblidad -->

@@ -7,7 +7,7 @@
 @endsection
 
 @section("publicaciones-navbar")
-    <a class="nav-link navbar-items" href="{{ route('post.busqueda') }}" style="color: black;">Otras Publicaciones</a>
+    <a class="nav-link navbar-items" href="{{ route('post.busqueda') }}">Otras Publicaciones</a>
 @endsection
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('plantillas.layout')
 
 @section("publicaciones-navbar")
-    <a class="nav-link navbar-items" href="{{ route('post.self') }}" style="color: black;">Tus Publicaciones</a>
+    <a class="nav-link navbar-items" href="{{ route('post.self') }}">Tus Publicaciones</a>
 @endsection
 
 
