@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('phone')->unique();
             $table->date('birth_date');
             $table->string('password');
-            $table->int('admin')->nullable();
+            $table->integer('admin')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
