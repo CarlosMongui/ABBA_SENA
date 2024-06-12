@@ -9,7 +9,7 @@ use App\Models\Report;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+class AdminController extends Controller
 {
     public function index(){
         $userSesion = Auth::user();
@@ -18,7 +18,7 @@ class HomeController extends Controller
             return redirect()->back();
         }
         
-        $postlist = Post::all();
+        $postlist = Post::orderBy('updated_at', "desc")->get();
                     
         $posts = Post::with('reports')->get();
         return view('admin.dashboard',[
@@ -48,7 +48,11 @@ class HomeController extends Controller
             return redirect()->back();
         }
 
-        $postlist = Post::where('user_id', $user->id)->with('reports')->get();
+        $postlist = Post::where('user_id', $user->id)
+                        ->orderBy('updated_at', "desc")
+                        ->with('reports')
+                        ->get();
+                        
         return view('admin.dashboard',[
             "postlist" => $postlist,
             "user" => $user

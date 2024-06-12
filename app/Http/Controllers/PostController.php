@@ -117,7 +117,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        if (auth()->user()->id !== $post->user_id) {
+        if (auth()->user()->id !== $post->user_id and auth()->user()->admin !== 1) {
             return back();
         }else{
         return view("editpost", [
@@ -144,7 +144,11 @@ class PostController extends Controller
         $post->category = $request->category;
         $post->save();
 
-        return to_route("post.self");
+        if (auth()->user()->admin === 1){
+            return to_route("admin.posts");
+        }else{
+            return to_route("post.self");
+        }
     }
 
     /**
