@@ -59,7 +59,7 @@
                         <div class="card-body">
                             <div style="text-align: center; font-weight: bold;" class="small">{{ $item->category }}</div>
                             <div class="small">{{ $item->updated_at }}</div>
-                            <p class="card-text">{{ $item->content }}</p>
+                            <p class="card-text">{!! nl2br(e($item->content)) !!}</p>
                             <div class="row">
                                 <div class="col-sm-4 col-xl-4">
                                     <p class="card-text"><small>Numero de Contacto: {{ $item->user->phone }}</small></p>

@@ -26,7 +26,7 @@
                         <div style="text-align: center; font-weight: bold;" class="small text-muted">{{ $item->category }}</div>
                         <div class="small text-muted">{{ $item->updated_at }}</div>
                         <div class="small text-muted">Creador del post: {{ $item->user->name }}</div>
-                        <p class="card-text">{{ $item->content }}</p>
+                        <p class="card-text">{!! nl2br(e($item->content)) !!}</p>
                         <div class="row">
                             <div class="col-md-4 col-xl-4">
                                 <p class="card-text"><small class="text-body-secondary">Numero de Contacto: {{ $item->user->phone }}</small></p>
@@ -56,7 +56,7 @@
                                     @foreach ($item->reports as $report)
                                         <div class="row">
                                             <div class="col-md-11">
-                                                <li>{{ $report->reason }}</li>
+                                                <li>{!! nl2br(e($report->reason)) !!}</li>
                                                 <p class="small text-muted">Reporte hecho por: {{ $report->user->name }}</p>
                                             </div>
                                             <div class="col-md-1">

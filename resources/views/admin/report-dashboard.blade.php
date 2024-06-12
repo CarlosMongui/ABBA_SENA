@@ -16,7 +16,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-11">
-                        <p class="card-text">{{ $report->reason }}</p>
+                        <p class="card-text">{!! nl2br(e($report->reason)) !!}</p>
                     </div>
                     <div class="col-md-1">
                         <button class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#delete{{ $report->id }}">🗑️</button>
@@ -45,7 +45,7 @@
                                             <div style="text-align: center; font-weight: bold;" class="small text-muted">{{ $report->post->category }}</div>
                                             <div class="small text-muted">{{ $report->post->updated_at }}</div>
                                             <div class="small text-muted">Creador del post: {{ $report->post->user->name }}</div>
-                                            <p class="card-text">{{ $report->post->content }}</p>
+                                            <p class="card-text">{!! nl2br(e($report->post->content)) !!}</p>
                                             <div class="row">
                                                 <div class="col-md-4 col-xl-4">
                                                     <p class="card-text"><small class="text-body-secondary">Numero de Contacto: {{ $report->post->user->phone }}</small></p>
