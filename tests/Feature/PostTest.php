@@ -10,32 +10,27 @@ use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 use Illuminate\Http\UploadedFile;
 
-class proyectoTest extends TestCase
+class PostTest extends TestCase
 {
     use RefreshDatabase;
-    //public function test_register(): void
-    //{
-    //    Artisan::call();
-    //    $response = $this->get('/register');
-    //    $response->assertStatus(200)->assertSee("register");
-    //}
 
-    public function test_new_posts(): void
+    /** @test */
+    public function PostTest(): void
     {
         $user = User::factory()->create();
         $this->actingAs($user);
         $this->withoutExceptionHandling();
 
-        $file = UploadedFile::fake()->image('No-Image-Placeholder.png');
+        $file = UploadedFile::fake()->image("No-Image-Placeholder.png");
 
-        $response = $this->post('/posts',[
+        $response = $this->post("/posts",[
             "user_id" => $user->id,
             "content" => "Descripción",
             "category" => "Busqueda",
             "image" => $file,
         ]);
 
-        $response->assertRedirect('tus-posts');
+        $response->assertRedirect("tus-posts");
 
         $this->assertCount(1, Post::all());
 
@@ -44,6 +39,6 @@ class proyectoTest extends TestCase
         $this->assertEquals($post->user_id, $user->id);
         $this->assertEquals($post->content, "Descripción");
         $this->assertEquals($post->category, "Busqueda");
-        $this->assertStringStartsWith('images/featureds/', $post->image);
+        $this->assertStringStartsWith("images/featureds/", $post->image);
     }
 }
